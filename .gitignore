@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/media/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tailwind CLI Binary
+tailwindcss
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+
+.venv/
+venv/
+env/
+ENV/
+
+# Django
+
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+
+# Django media & static
+
+media/
+staticfiles/
+
+
+# Environment variables
+
+.env
+.env.*
+
+# Migrations (optional – remove if you want them tracked)
+
+**/migrations/*
+!**/migrations/**init**.py
+
+# IDE / Editor
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Testing / coverage
+
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Distribution / packaging
+
+build/
+dist/
+*.egg-info/
+
+# Node (if you ever add Tailwind/npm)
+
+node_modules/

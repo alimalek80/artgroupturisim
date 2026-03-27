@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile - Art Tourism{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8 max-w-3xl">
+    <!-- Header -->
+    <div class="mb-6">
+        <h1 class="text-3xl font-bold text-gray-900">Edit Profile</h1>
+        <p class="text-gray-600 mt-2">Update your personal information and profile settings</p>
+    </div>
+
+    <!-- Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="mb-4 rounded-md {% if message.tags == 'error' %}bg-red-50 border border-red-200{% elif message.tags == 'success' %}bg-green-50 border border-green-200{% else %}bg-blue-50 border border-blue-200{% endif %} p-4">
+                <p class="text-sm {% if message.tags == 'error' %}text-red-800{% elif message.tags == 'success' %}text-green-800{% else %}text-blue-800{% endif %}">
+                    {{ message }}
+                </p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Edit Profile Form -->
+    <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        
+        <div class="bg-white rounded-lg shadow-md">
+            <!-- User Information Section -->
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">User Information</h2>
+                <div class="space-y-4">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="{{ user_form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                            Email Address <span class="text-red-500">*</span>
+                        </label>
+                        {{ user_form.email }}
+                        <p class="mt-1 text-xs text-gray-500">Email cannot be changed</p>
+                        {% if user_form.email.errors %}
+                            <p class="mt-1 text-sm text-red-600">{{ user_form.email.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- First Name Field -->
+                    <div>
+                        <label for="{{ user_form.first_name.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                            First Name
+                        </label>
+                        {{ user_form.first_name }}
+                        {% if user_form.first_name.errors %}
+                            <p class="mt-1 text-sm text-red-600">{{ user_form.first_name.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Last Name Field -->
+                    <div>
+                        <label for="{{ user_form.last_name.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                            Last Name
+                        </label>
+                        {{ user_form.last_name }}
+                        {% if user_form.last_name.errors %}
+                            <p class="mt-1 text-sm text-red-600">{{ user_form.last_name.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Information Section -->
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">Profile Information</h2>
+                <div class="space-y-4">
+                    <!-- Phone Number Field -->
+                    <div>
+                        <label for="{{ profile_form.phone_number.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                            Phone Number
+                        </label>
+                        {{ profile_form.phone_number }}
+                        {% if profile_form.phone_number.errors %}
+                            <p class="mt-1 text-sm text-red-600">{{ profile_form.phone_number.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Profile Image Field -->
+                    <div>
+                        <label for="{{ profile_form.profile_image.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                            Profile Image
+                        </label>
+                        {% if user.profile.profile_image %}
+                            <div class="mb-2">
+                                <img src="{{ user.profile.profile_image.url }}" alt="Current Profile" class="w-24 h-24 rounded-full object-cover">
+                                <p class="text-xs text-gray-500 mt-1">Current profile image</p>
+                            </div>
+                        {% endif %}
+                        {{ profile_form.profile_image }}
+                        {% if profile_form.profile_image.errors %}
+                            <p class="mt-1 text-sm text-red-600">{{ profile_form.profile_image.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Bio Field -->
+                    <div>
+                        <label for="{{ profile_form.bio.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                            Bio
+                        </label>
+                        {{ profile_form.bio }}
+                        <p class="mt-1 text-xs text-gray-500">Tell us a little about yourself</p>
+                        {% if profile_form.bio.errors %}
+                            <p class="mt-1 text-sm text-red-600">{{ profile_form.bio.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="p-6 bg-gray-50 flex flex-col sm:flex-row gap-3">
+                <button type="submit" class="flex-1 sm:flex-initial px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150">
+                    Save Changes
+                </button>
+                <a href="{% url 'accounts:profile' %}" class="flex-1 sm:flex-initial px-6 py-3 bg-gray-600 text-white text-center rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-150">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
