@@ -86,6 +86,8 @@
     --text-5xl--line-height: 1;
     --text-6xl: 3.75rem;
     --text-6xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
     --font-weight-medium: 500;
@@ -506,6 +508,9 @@
   }
   .h-full {
     height: 100%;
+  }
+  .min-h-\[60vh\] {
+    min-height: 60vh;
   }
   .min-h-\[600px\] {
     min-height: 600px;
@@ -941,6 +946,9 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
+  .p-16 {
+    padding: calc(var(--spacing) * 16);
+  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -1050,6 +1058,10 @@
   .text-6xl {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
+  .text-7xl {
+    font-size: var(--text-7xl);
+    line-height: var(--tw-leading, var(--text-7xl--line-height));
   }
   .text-lg {
     font-size: var(--text-lg);
@@ -1214,6 +1226,12 @@
   }
   .text-white {
     color: var(--color-white);
+  }
+  .text-white\/90 {
+    color: color-mix(in srgb, #fff 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 90%, transparent);
+    }
   }
   .text-yellow-400 {
     color: var(--color-yellow-400);
@@ -1419,6 +1437,16 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-white);
+      }
+    }
+  }
+  .hover\:bg-white\/20 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, #fff 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+        }
       }
     }
   }

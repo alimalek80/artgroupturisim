@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Prefetch
 from tours.models import Tour, TourImage
+from .models import AboutSection
 
 
 def home_view(request):
@@ -31,8 +32,26 @@ def home_view(request):
     else:
         tours = list(featured_tours)
     
+    # Get active about section
+    about_section = AboutSection.objects.filter(is_active=True).first()
+    
     context = {
         'page_title': 'Welcome to Art Tourism',
         'tours': tours,
+        'about_section': about_section,
     }
     return render(request, 'core/home.html', context)
+
+
+def about_view(request):
+    """
+    About page view displaying company information.
+    """
+    # Get active about section
+    about_section = AboutSection.objects.filter(is_active=True).first()
+    
+    context = {
+        'page_title': 'About Us',
+        'about_section': about_section,
+    }
+    return render(request, 'core/about.html', context)

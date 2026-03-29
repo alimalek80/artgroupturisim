@@ -119,34 +119,65 @@
 <section class="py-32 px-6 bg-white">
     <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
         <div>
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80" alt="About Us" class="rounded-3xl shadow-2xl">
+            {% if about_section and about_section.image %}
+                <img src="{{ about_section.image.url }}" alt="{{ about_section.section_label }}" class="rounded-3xl shadow-2xl">
+            {% else %}
+                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80" alt="About Us" class="rounded-3xl shadow-2xl">
+            {% endif %}
         </div>
         <div>
-            <div class="inline-block px-8 py-3 bg-orange-100 rounded-full text-sm font-black uppercase tracking-[0.3em] text-orange-600 mb-6">
-                Who Are We
-            </div>
-            <h2 class="text-5xl font-black mb-8 leading-tight">We Make Dreams Come True</h2>
-            <p class="text-xl text-slate-600 mb-10 leading-relaxed">
-                Art Group Tourism is a premier luxury travel agency specializing in bespoke, high-end experiences. 
-                With over a decade of expertise, we create journeys that transcend the ordinary.
-            </p>
-            <div class="grid grid-cols-3 gap-8 mb-12">
-                <div>
-                    <div class="text-5xl font-black text-orange-500 mb-2">150+</div>
-                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Destinations</div>
+            {% if about_section %}
+                <div class="inline-block px-8 py-3 bg-orange-100 rounded-full text-sm font-black uppercase tracking-[0.3em] text-orange-600 mb-6">
+                    {{ about_section.section_label }}
                 </div>
-                <div>
-                    <div class="text-5xl font-black text-orange-500 mb-2">20K+</div>
-                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Happy Clients</div>
+                <h2 class="text-5xl font-black mb-8 leading-tight">{{ about_section.heading }}</h2>
+                <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                    {{ about_section.description }}
+                </p>
+                <div class="grid grid-cols-3 gap-8 mb-12">
+                    <div>
+                        <div class="text-5xl font-black text-orange-500 mb-2">{{ about_section.stat1_number }}</div>
+                        <div class="text-sm font-bold uppercase tracking-wider text-slate-500">{{ about_section.stat1_label }}</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-black text-orange-500 mb-2">{{ about_section.stat2_number }}</div>
+                        <div class="text-sm font-bold uppercase tracking-wider text-slate-500">{{ about_section.stat2_label }}</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-black text-orange-500 mb-2">{{ about_section.stat3_number }}</div>
+                        <div class="text-sm font-bold uppercase tracking-wider text-slate-500">{{ about_section.stat3_label }}</div>
+                    </div>
                 </div>
-                <div>
-                    <div class="text-5xl font-black text-orange-500 mb-2">98%</div>
-                    <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Satisfaction</div>
+                <a href="{% url 'core:about' %}" class="inline-block bg-slate-900 text-white px-10 py-5 rounded-2xl font-black hover:bg-orange-500 transition-all">
+                    LEARN MORE
+                </a>
+            {% else %}
+                <div class="inline-block px-8 py-3 bg-orange-100 rounded-full text-sm font-black uppercase tracking-[0.3em] text-orange-600 mb-6">
+                    Who Are We
                 </div>
-            </div>
-            <a href="#" class="inline-block bg-slate-900 text-white px-10 py-5 rounded-2xl font-black hover:bg-orange-500 transition-all">
-                LEARN MORE
-            </a>
+                <h2 class="text-5xl font-black mb-8 leading-tight">We Make Dreams Come True</h2>
+                <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                    Art Group Tourism is a premier luxury travel agency specializing in bespoke, high-end experiences. 
+                    With over a decade of expertise, we create journeys that transcend the ordinary.
+                </p>
+                <div class="grid grid-cols-3 gap-8 mb-12">
+                    <div>
+                        <div class="text-5xl font-black text-orange-500 mb-2">150+</div>
+                        <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Destinations</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-black text-orange-500 mb-2">20K+</div>
+                        <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Happy Clients</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-black text-orange-500 mb-2">98%</div>
+                        <div class="text-sm font-bold uppercase tracking-wider text-slate-500">Satisfaction</div>
+                    </div>
+                </div>
+                <a href="{% url 'core:about' %}" class="inline-block bg-slate-900 text-white px-10 py-5 rounded-2xl font-black hover:bg-orange-500 transition-all">
+                    LEARN MORE
+                </a>
+            {% endif %}
         </div>
     </div>
 </section>
