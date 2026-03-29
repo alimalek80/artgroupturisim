@@ -1,10 +1,10 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Art Tourism | Luxury Travel Experiences{% endblock %}</title>
+    <title>{% block title %}{% trans "Art Tourism | Luxury Travel Experiences" %}{% endblock %}</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,6 +148,57 @@
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
             document.body.classList.toggle('overflow-hidden');
+        }
+
+        // Language Dropdown Logic
+        const languageButton = document.getElementById('languageButton');
+        const languageMenu = document.getElementById('languageMenu');
+        const languageDropdown = document.getElementById('languageDropdown');
+
+        if (languageButton && languageMenu) {
+            let closeTimeout;
+
+            // Open on hover
+            languageDropdown.addEventListener('mouseenter', () => {
+                clearTimeout(closeTimeout);
+                languageMenu.classList.remove('hidden');
+            });
+
+            // Close on mouse leave with delay
+            languageDropdown.addEventListener('mouseleave', () => {
+                closeTimeout = setTimeout(() => {
+                    languageMenu.classList.add('hidden');
+                }, 300);
+            });
+
+            // Toggle on click
+            languageButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                languageMenu.classList.toggle('hidden');
+            });
+
+            // Handle language button clicks — strip language prefix so switching works repeatedly
+            const form = languageMenu.querySelector('form.language-form');
+            if (form) {
+                form.querySelectorAll('button[type="submit"]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // Remove /tr/ or /ru/ prefix so the redirect goes to a language-neutral path
+                        // Django's LocaleMiddleware will then apply the new language from the cookie
+                        let nextUrl = window.location.pathname;
+                        nextUrl = nextUrl.replace(/^\/(tr|ru)(\/.*)$/, '$2').replace(/^\/(tr|ru)$/, '/');
+                        form.querySelector('input[name="next"]').value = nextUrl || '/';
+                        // Let form submit naturally
+                    });
+                });
+            }
+
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!languageDropdown.contains(e.target)) {
+                    languageMenu.classList.add('hidden');
+                }
+            });
         }
     </script>
 

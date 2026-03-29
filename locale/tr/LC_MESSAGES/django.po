@@ -1,0 +1,376 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 00:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: templates/base.html:7
+msgid "Art Tourism | Luxury Travel Experiences"
+msgstr "Art Tourism | Lüks Seyahat Deneyimleri"
+
+#: templates/includes/navbar.html:55 templates/includes/navbar.html:94
+msgid "HOME"
+msgstr "ANA SAYFA"
+
+#: templates/includes/navbar.html:56 templates/includes/navbar.html:95
+msgid "DESTINATIONS"
+msgstr "DESTİNASYONLAR"
+
+#: templates/includes/navbar.html:57 templates/includes/navbar.html:96
+msgid "TOURS"
+msgstr "TURLAR"
+
+#: templates/includes/navbar.html:58 templates/includes/navbar.html:97
+msgid "ABOUT"
+msgstr "HAKKIMIZDA"
+
+#: templates/includes/navbar.html:59
+msgid "NEWS"
+msgstr "HABERLER"
+
+#: templates/includes/navbar.html:69 templates/includes/navbar.html:101
+msgid "LOGOUT"
+msgstr "ÇIKIŞ YAP"
+
+#: templates/includes/navbar.html:73 templates/includes/navbar.html:103
+msgid "LOGIN"
+msgstr "Gİ̇RİŞ YAP"
+
+#: templates/includes/navbar.html:76 templates/includes/navbar.html:104
+msgid "REGISTER"
+msgstr "KAYIT OL"
+
+#: templates/includes/navbar.html:98
+msgid "CONTACT"
+msgstr "İLETİŞİM"
+
+#: templates/includes/navbar.html:100
+msgid "PROFILE"
+msgstr "PROFİL"
+
+#: templates/tours/tour_detail.html:46 tours/models.py:171
+msgid "Tours"
+msgstr "Turlar"
+
+#: templates/tours/tour_detail.html:74
+msgid "Featured Tour"
+msgstr "Öne Çıkan Tur"
+
+#: templates/tours/tour_detail.html:88
+msgid "View Photos"
+msgstr "Fotoğrafları Görüntüle"
+
+#: templates/tours/tour_detail.html:178
+msgid "Description"
+msgstr "Açıklama"
+
+#: templates/tours/tour_detail.html:184
+msgid "Itinerary"
+msgstr "Güzergah"
+
+#: templates/tours/tour_detail.html:190
+msgid "Pickup Info"
+msgstr "Alış Bilgisi"
+
+#: templates/tours/tour_detail.html:236
+msgid "Detailed itinerary coming soon."
+msgstr "Detaylı güzergah yakında."
+
+#: templates/tours/tour_detail.html:250 tours/models.py:439
+msgid "Pickup Locations"
+msgstr "Alış Noktaları"
+
+#: templates/tours/tour_detail.html:280
+msgid "Pickup information will be provided after booking."
+msgstr "Alış bilgisi rezervasyondan sonra verilecektir."
+
+#: templates/tours/tour_detail.html:295
+msgid "What's Included"
+msgstr "Dahil Olanlar"
+
+#: templates/tours/tour_detail.html:317
+msgid "What's Not Included"
+msgstr "Dahil Olmayanlar"
+
+#: templates/tours/tour_detail.html:342
+msgid "Please Note"
+msgstr "Lütfen Dikkat"
+
+#: templates/tours/tour_detail.html:360
+msgid "What to Bring"
+msgstr "Neler Getirilmeli"
+
+#: templates/tours/tour_detail.html:364
+msgid "Required Items"
+msgstr "Gerekli Eşyalar"
+
+#: templates/tours/tour_detail.html:378
+msgid "Recommended Items"
+msgstr "Önerilen Eşyalar"
+
+#: templates/tours/tour_detail.html:395
+msgid "Cancellation Policy"
+msgstr "İptal Politikası"
+
+#: templates/tours/tour_detail.html:413
+msgid "More Information"
+msgstr "Daha Fazla Bilgi"
+
+#: templates/tours/tour_detail.html:422
+msgid "Experience Type"
+msgstr "Deneyim Tipi"
+
+#: templates/tours/tour_detail.html:433
+msgid "Booking in Advance"
+msgstr "Önceden Rezervasyon"
+
+#: templates/tours/tour_detail.html:434
+#, python-format
+msgid "Book at least %(hours)s hours before"
+msgstr "En az %(hours)s saat önce rezerve edin"
+
+#: templates/tours/tour_detail.html:444
+msgid "Duration"
+msgstr "Süre"
+
+#: templates/tours/tour_detail.html:455
+msgid "Difficulty Level"
+msgstr "Zorluk Seviyesi"
+
+#: templates/tours/tour_detail.html:467
+msgid "Accessibility"
+msgstr "Erişilebilirlik"
+
+#: templates/tours/tour_detail.html:486
+msgid "Live Tour Guide Languages"
+msgstr "Canlı Tur Rehberi Dilleri"
+
+#: templates/tours/tour_detail.html:504
+msgid "Confirmation"
+msgstr "Onay"
+
+#: templates/tours/tour_detail.html:506
+msgid "Instant Confirmation"
+msgstr "Anında Onay"
+
+#: templates/tours/tour_detail.html:506 templates/tours/tour_detail.html:616
+msgid "Confirmation within 24 hours"
+msgstr "24 saat içinde onay"
+
+#: templates/tours/tour_detail.html:518
+msgid "Group Size"
+msgstr "Grup Büyüklüğü"
+
+#: templates/tours/tour_detail.html:519
+#, python-format
+msgid "Maximum %(max)s participants"
+msgstr "Maksimum %(max)s katılımcı"
+
+#: templates/tours/tour_detail.html:529
+msgid "You Might Also Like"
+msgstr "Beğenebilirsiniz"
+
+#: templates/tours/tour_detail.html:560
+msgid "Book This Tour"
+msgstr "Bu Turu Rezerve Et"
+
+#: templates/tours/tour_detail.html:564
+msgid "Select Participants"
+msgstr "Katılımcıları Seçin"
+
+#: templates/tours/tour_detail.html:582
+msgid "Select Date"
+msgstr "Tarih Seçin"
+
+#: templates/tours/tour_detail.html:589
+msgid "Next available:"
+msgstr "Sonraki müsait:"
+
+#: templates/tours/tour_detail.html:596
+msgid "Subtotal"
+msgstr "Ara Toplam"
+
+#: templates/tours/tour_detail.html:601
+msgid "Total"
+msgstr "Toplam"
+
+#: templates/tours/tour_detail.html:609
+msgid "Check Availability"
+msgstr "Müsaitliği Kontrol Et"
+
+#: templates/tours/tour_detail.html:614
+msgid "Instant confirmation"
+msgstr "Anında onay"
+
+#: templates/tours/tour_detail.html:622
+msgid "Need help?"
+msgstr "Yardıma mı ihtiyacınız var?"
+
+#: templates/tours/tour_detail.html:627
+msgid "Contact Us"
+msgstr "Bize Ulaşın"
+
+#: templates/tours/tour_list.html:5
+msgid "Discover Our Tours"
+msgstr "Turlarımızı Keşfedin"
+
+#: tours/models.py:19
+msgid "Tour Category"
+msgstr "Tur Kategorisi"
+
+#: tours/models.py:20
+msgid "Tour Categories"
+msgstr "Tur Kategorileri"
+
+#: tours/models.py:40
+msgid "Language"
+msgstr "Dil"
+
+#: tours/models.py:41
+msgid "Languages"
+msgstr "Diller"
+
+#: tours/models.py:57
+msgid "Accessibility Option"
+msgstr "Erişilebilirlik Seçeneği"
+
+#: tours/models.py:58
+msgid "Accessibility Options"
+msgstr "Erişilebilirlik Seçenekleri"
+
+#: tours/models.py:70
+msgid "Easy"
+msgstr "Kolay"
+
+#: tours/models.py:71
+msgid "Moderate"
+msgstr "Orta"
+
+#: tours/models.py:72
+msgid "Challenging"
+msgstr "Zorlu"
+
+#: tours/models.py:73
+msgid "Difficult"
+msgstr "Zor"
+
+#: tours/models.py:77
+msgid "Group Tour"
+msgstr "Grup Turu"
+
+#: tours/models.py:78
+msgid "Private Tour"
+msgstr "Özel Tur"
+
+#: tours/models.py:79
+msgid "Semi-Private Tour"
+msgstr "Yarı Özel Tur"
+
+#: tours/models.py:80
+msgid "Self-Guided"
+msgstr "Kendi Kendine Rehberli"
+
+#: tours/models.py:170
+msgid "Tour"
+msgstr "Tur"
+
+#: tours/models.py:221
+msgid "Tour Image"
+msgstr "Tur Resmi"
+
+#: tours/models.py:222
+msgid "Tour Images"
+msgstr "Tur Resimleri"
+
+#: tours/models.py:245
+msgid "Included Item"
+msgstr "Dahil Edilen Öğe"
+
+#: tours/models.py:246
+msgid "Included Items"
+msgstr "Dahil Edilen Öğeler"
+
+#: tours/models.py:263
+msgid "Excluded Item"
+msgstr "Hariç Tutulan Öğe"
+
+#: tours/models.py:264
+msgid "Excluded Items"
+msgstr "Hariç Tutulan Öğeler"
+
+#: tours/models.py:276
+msgid "General Note"
+msgstr "Genel Not"
+
+#: tours/models.py:277
+msgid "Restriction"
+msgstr "Kısıtlama"
+
+#: tours/models.py:278
+msgid "Accessibility Note"
+msgstr "Erişilebilirlik Notu"
+
+#: tours/models.py:279
+msgid "Weather Condition"
+msgstr "Hava Durumu"
+
+#: tours/models.py:280
+msgid "Important"
+msgstr "Önemli"
+
+#: tours/models.py:290
+msgid "Tour Note"
+msgstr "Tur Notu"
+
+#: tours/models.py:291
+msgid "Tour Notes"
+msgstr "Tur Notları"
+
+#: tours/models.py:309
+msgid "Item to Bring"
+msgstr "Getirilecek Eşya"
+
+#: tours/models.py:310
+msgid "Items to Bring"
+msgstr "Getirilecek Eşyalar"
+
+#: tours/models.py:334
+msgid "Itinerary Item"
+msgstr "Güzergah Öğesi"
+
+#: tours/models.py:335
+msgid "Itinerary Items"
+msgstr "Güzergah Öğeleri"
+
+#: tours/models.py:363
+msgid "Tour Availability"
+msgstr "Tur Müsaitliği"
+
+#: tours/models.py:364
+msgid "Tour Availabilities"
+msgstr "Tur Müsaitlikleri"
+
+#: tours/models.py:396
+msgid "Cancellation Policy Rule"
+msgstr "İptal Politikası Kuralı"
+
+#: tours/models.py:397
+msgid "Cancellation Policy Rules"
+msgstr "İptal Politikası Kuralları"
+
+#: tours/models.py:438
+msgid "Pickup Location"
+msgstr "Alış Noktası"

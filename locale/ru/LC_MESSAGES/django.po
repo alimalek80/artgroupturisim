@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 00:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: templates/base.html:7
+msgid "Art Tourism | Luxury Travel Experiences"
+msgstr "Art Tourism | Роскошные Туристические Впечатления"
+
+#: templates/includes/navbar.html:55 templates/includes/navbar.html:94
+msgid "HOME"
+msgstr "ГЛАВНАЯ"
+
+#: templates/includes/navbar.html:56 templates/includes/navbar.html:95
+msgid "DESTINATIONS"
+msgstr "НАПРАВЛЕНИЯ"
+
+#: templates/includes/navbar.html:57 templates/includes/navbar.html:96
+msgid "TOURS"
+msgstr "ТУРЫ"
+
+#: templates/includes/navbar.html:58 templates/includes/navbar.html:97
+msgid "ABOUT"
+msgstr "О НАС"
+
+#: templates/includes/navbar.html:59
+msgid "NEWS"
+msgstr "НОВОСТИ"
+
+#: templates/includes/navbar.html:69 templates/includes/navbar.html:101
+msgid "LOGOUT"
+msgstr "ВЫХОД"
+
+#: templates/includes/navbar.html:73 templates/includes/navbar.html:103
+msgid "LOGIN"
+msgstr "ВХОД"
+
+#: templates/includes/navbar.html:76 templates/includes/navbar.html:104
+msgid "REGISTER"
+msgstr "РЕГИСТРАЦИЯ"
+
+#: templates/includes/navbar.html:98
+msgid "CONTACT"
+msgstr "КОНТАКТЫ"
+
+#: templates/includes/navbar.html:100
+msgid "PROFILE"
+msgstr "ПРОФИЛЬ"
+
+#: templates/tours/tour_detail.html:46 tours/models.py:171
+msgid "Tours"
+msgstr "Туры"
+
+#: templates/tours/tour_detail.html:74
+msgid "Featured Tour"
+msgstr "Рекомендуемый Тур"
+
+#: templates/tours/tour_detail.html:88
+msgid "View Photos"
+msgstr "Просмотреть Фото"
+
+#: templates/tours/tour_detail.html:178
+msgid "Description"
+msgstr "Описание"
+
+#: templates/tours/tour_detail.html:184
+msgid "Itinerary"
+msgstr "Маршрут"
+
+#: templates/tours/tour_detail.html:190
+msgid "Pickup Info"
+msgstr "Информация о Встрече"
+
+#: templates/tours/tour_detail.html:236
+msgid "Detailed itinerary coming soon."
+msgstr "Подробный маршрут скоро будет доступен."
+
+#: templates/tours/tour_detail.html:250 tours/models.py:439
+msgid "Pickup Locations"
+msgstr "Места Встречи"
+
+#: templates/tours/tour_detail.html:280
+msgid "Pickup information will be provided after booking."
+msgstr "Информация о встрече будет предоставлена после бронирования."
+
+#: templates/tours/tour_detail.html:295
+msgid "What's Included"
+msgstr "Что Включено"
+
+#: templates/tours/tour_detail.html:317
+msgid "What's Not Included"
+msgstr "Что Не Включено"
+
+#: templates/tours/tour_detail.html:342
+msgid "Please Note"
+msgstr "Обратите Внимание"
+
+#: templates/tours/tour_detail.html:360
+msgid "What to Bring"
+msgstr "Что Взять с Собой"
+
+#: templates/tours/tour_detail.html:364
+msgid "Required Items"
+msgstr "Обязательные Предметы"
+
+#: templates/tours/tour_detail.html:378
+msgid "Recommended Items"
+msgstr "Рекомендуемые Предметы"
+
+#: templates/tours/tour_detail.html:395
+msgid "Cancellation Policy"
+msgstr "Правила Отмены"
+
+#: templates/tours/tour_detail.html:413
+msgid "More Information"
+msgstr "Дополнительная Информация"
+
+#: templates/tours/tour_detail.html:422
+msgid "Experience Type"
+msgstr "Тип Опыта"
+
+#: templates/tours/tour_detail.html:433
+msgid "Booking in Advance"
+msgstr "Предварительное Бронирование"
+
+#: templates/tours/tour_detail.html:434
+#, python-format
+msgid "Book at least %(hours)s hours before"
+msgstr "Бронируйте не менее чем за %(hours)s часов"
+
+#: templates/tours/tour_detail.html:444
+msgid "Duration"
+msgstr "Продолжительность"
+
+#: templates/tours/tour_detail.html:455
+msgid "Difficulty Level"
+msgstr "Уровень Сложности"
+
+#: templates/tours/tour_detail.html:467
+msgid "Accessibility"
+msgstr "Доступность"
+
+#: templates/tours/tour_detail.html:486
+msgid "Live Tour Guide Languages"
+msgstr "Языки Живого Гида"
+
+#: templates/tours/tour_detail.html:504
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+#: templates/tours/tour_detail.html:506
+msgid "Instant Confirmation"
+msgstr "Мгновенное Подтверждение"
+
+#: templates/tours/tour_detail.html:506 templates/tours/tour_detail.html:616
+msgid "Confirmation within 24 hours"
+msgstr "Подтверждение в течение 24 часов"
+
+#: templates/tours/tour_detail.html:518
+msgid "Group Size"
+msgstr "Размер Группы"
+
+#: templates/tours/tour_detail.html:519
+#, python-format
+msgid "Maximum %(max)s participants"
+msgstr "Максимум %(max)s участников"
+
+#: templates/tours/tour_detail.html:529
+msgid "You Might Also Like"
+msgstr "Вам Также Может Понравиться"
+
+#: templates/tours/tour_detail.html:560
+msgid "Book This Tour"
+msgstr "Забронировать Этот Тур"
+
+#: templates/tours/tour_detail.html:564
+msgid "Select Participants"
+msgstr "Выберите Участников"
+
+#: templates/tours/tour_detail.html:582
+msgid "Select Date"
+msgstr "Выберите Дату"
+
+#: templates/tours/tour_detail.html:589
+msgid "Next available:"
+msgstr "Следующая доступная дата:"
+
+#: templates/tours/tour_detail.html:596
+msgid "Subtotal"
+msgstr "Промежуточный Итог"
+
+#: templates/tours/tour_detail.html:601
+msgid "Total"
+msgstr "Итого"
+
+#: templates/tours/tour_detail.html:609
+msgid "Check Availability"
+msgstr "Проверить Доступность"
+
+#: templates/tours/tour_detail.html:614
+msgid "Instant confirmation"
+msgstr "Мгновенное подтверждение"
+
+#: templates/tours/tour_detail.html:622
+msgid "Need help?"
+msgstr "Нужна помощь?"
+
+#: templates/tours/tour_detail.html:627
+msgid "Contact Us"
+msgstr "Свяжитесь с Нами"
+
+#: templates/tours/tour_list.html:5
+msgid "Discover Our Tours"
+msgstr "Откройте Наши Туры"
+
+#: tours/models.py:19
+msgid "Tour Category"
+msgstr "Категория Тура"
+
+#: tours/models.py:20
+msgid "Tour Categories"
+msgstr "Категории Туров"
+
+#: tours/models.py:40
+msgid "Language"
+msgstr "Язык"
+
+#: tours/models.py:41
+msgid "Languages"
+msgstr "Языки"
+
+#: tours/models.py:57
+msgid "Accessibility Option"
+msgstr "Опция Доступности"
+
+#: tours/models.py:58
+msgid "Accessibility Options"
+msgstr "Опции Доступности"
+
+#: tours/models.py:70
+msgid "Easy"
+msgstr "Легкий"
+
+#: tours/models.py:71
+msgid "Moderate"
+msgstr "Умеренный"
+
+#: tours/models.py:72
+msgid "Challenging"
+msgstr "Сложный"
+
+#: tours/models.py:73
+msgid "Difficult"
+msgstr "Трудный"
+
+#: tours/models.py:77
+msgid "Group Tour"
+msgstr "Групповой Тур"
+
+#: tours/models.py:78
+msgid "Private Tour"
+msgstr "Частный Тур"
+
+#: tours/models.py:79
+msgid "Semi-Private Tour"
+msgstr "Полу-Частный Тур"
+
+#: tours/models.py:80
+msgid "Self-Guided"
+msgstr "Самостоятельный"
+
+#: tours/models.py:170
+msgid "Tour"
+msgstr "Тур"
+
+#: tours/models.py:221
+msgid "Tour Image"
+msgstr "Изображение Тура"
+
+#: tours/models.py:222
+msgid "Tour Images"
+msgstr "Изображения Тура"
+
+#: tours/models.py:245
+msgid "Included Item"
+msgstr "Включенный Элемент"
+
+#: tours/models.py:246
+msgid "Included Items"
+msgstr "Включенные Элементы"
+
+#: tours/models.py:263
+msgid "Excluded Item"
+msgstr "Исключенный Элемент"
+
+#: tours/models.py:264
+msgid "Excluded Items"
+msgstr "Исключенные Элементы"
+
+#: tours/models.py:276
+msgid "General Note"
+msgstr "Общая Заметка"
+
+#: tours/models.py:277
+msgid "Restriction"
+msgstr "Ограничение"
+
+#: tours/models.py:278
+msgid "Accessibility Note"
+msgstr "Заметка о Доступности"
+
+#: tours/models.py:279
+msgid "Weather Condition"
+msgstr "Погодные Условия"
+
+#: tours/models.py:280
+msgid "Important"
+msgstr "Важно"
+
+#: tours/models.py:290
+msgid "Tour Note"
+msgstr "Заметка Тура"
+
+#: tours/models.py:291
+msgid "Tour Notes"
+msgstr "Заметки Тура"
+
+#: tours/models.py:309
+msgid "Item to Bring"
+msgstr "Предмет для Взятия"
+
+#: tours/models.py:310
+msgid "Items to Bring"
+msgstr "Предметы для Взятия"
+
+#: tours/models.py:334
+msgid "Itinerary Item"
+msgstr "Элемент Маршрута"
+
+#: tours/models.py:335
+msgid "Itinerary Items"
+msgstr "Элементы Маршрута"
+
+#: tours/models.py:363
+msgid "Tour Availability"
+msgstr "Доступность Тура"
+
+#: tours/models.py:364
+msgid "Tour Availabilities"
+msgstr "Доступности Тура"
+
+#: tours/models.py:396
+msgid "Cancellation Policy Rule"
+msgstr "Правило Политики Отмены"
+
+#: tours/models.py:397
+msgid "Cancellation Policy Rules"
+msgstr "Правила Политики Отмены"
+
+#: tours/models.py:438
+msgid "Pickup Location"
+msgstr "Место Встречи"
