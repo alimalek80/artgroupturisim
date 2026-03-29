@@ -27,6 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third-party apps
+    'ckeditor',
+    'ckeditor_uploader',
+
     # Project apps
     'core',
     'accounts',
@@ -165,4 +169,127 @@ LOGOUT_REDIRECT_URL = 'accounts:login'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ==============================================================================
+# Email Configuration
+# ==============================================================================
+
+# For development - emails will be printed to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# For production - configure with your email provider
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'  # or your email provider
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your-email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your-app-password'
+DEFAULT_FROM_EMAIL = 'contact@artgrouptourism.com'
+SERVER_EMAIL = 'contact@artgrouptourism.com'
+
+# ==============================================================================
+# CKEditor Configuration
+# ==============================================================================
+
+# CKEditor upload path
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# CKEditor image backend
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+# Allow file browsing
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_RESTRICT_BY_DATE = True
+
+# CKEditor configuration
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',
+        'toolbar_Custom': [
+            {
+                'name': 'document',
+                'items': ['Source', '-', 'Preview', 'Print', '-', 'Templates']
+            },
+            {
+                'name': 'clipboard',
+                'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']
+            },
+            {
+                'name': 'editing',
+                'items': ['Find', 'Replace', '-', 'SelectAll']
+            },
+            '/',
+            {
+                'name': 'basicstyles',
+                'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']
+            },
+            {
+                'name': 'paragraph',
+                'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-',
+                          'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+            },
+            {
+                'name': 'links',
+                'items': ['Link', 'Unlink', 'Anchor']
+            },
+            {
+                'name': 'insert',
+                'items': ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe']
+            },
+            '/',
+            {
+                'name': 'styles',
+                'items': ['Styles', 'Format', 'Font', 'FontSize']
+            },
+            {
+                'name': 'colors',
+                'items': ['TextColor', 'BGColor']
+            },
+            {
+                'name': 'tools',
+                'items': ['Maximize', 'ShowBlocks']
+            },
+        ],
+        'toolbar': 'Custom',
+        'height': 400,
+        'width': '100%',
+        'tabSpaces': 4,
+        # Floating toolbar - stays visible when scrolling
+        'toolbarLocation': 'top',
+        'toolbarCanCollapse': False,
+        'toolbarStartupExpanded': True,
+        'resize_enabled': True,
+        'removeDialogTabs': 'image:advanced;link:advanced',
+        'extraPlugins': ','.join([
+            'uploadimage',
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            'autogrow',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath',
+            'floatingspace',  # Enables floating/sticky toolbar
+        ]),
+        'removePlugins': ','.join([
+            'exportpdf',
+        ]),
+        # Allow all content (disable filtering)
+        'allowedContent': True,
+        'forcePasteAsPlainText': False,
+        'contentsCss': [
+            'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css',
+        ],
+        # Image upload settings
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'filebrowserBrowseUrl': '/ckeditor/browse/',
+        'filebrowserImageBrowseUrl': '/ckeditor/browse/',
+        'filebrowserImageUploadUrl': '/ckeditor/upload/',
+    },
+}
 

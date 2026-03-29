@@ -1,0 +1,52 @@
+<!-- Categories -->
+{% if categories %}
+<div class="bg-slate-50 rounded-3xl p-8 mb-8">
+    <h3 class="text-2xl font-black mb-6 text-slate-900">Categories</h3>
+    <div class="space-y-3">
+        {% for cat in categories %}
+        <a href="{{ cat.get_absolute_url }}" class="flex items-center justify-between p-3 rounded-xl hover:bg-white hover:shadow-md transition-all group">
+            <span class="font-bold text-slate-700 group-hover:text-orange-600">{{ cat.name }}</span>
+            <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold">
+                {{ cat.published_post_count }}
+            </span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Recent Posts -->
+{% if recent_posts %}
+<div class="bg-slate-50 rounded-3xl p-8 mb-8">
+    <h3 class="text-2xl font-black mb-6 text-slate-900">Recent Posts</h3>
+    <div class="space-y-6">
+        {% for recent_post in recent_posts %}
+        <a href="{{ recent_post.get_absolute_url }}" class="flex gap-4 group">
+            <div class="w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden">
+                {% if recent_post.featured_image %}
+                <img src="{{ recent_post.featured_image.url }}" alt="{{ recent_post.title }}" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300">
+                {% else %}
+                <div class="w-full h-full bg-gradient-to-br from-orange-400 to-pink-400"></div>
+                {% endif %}
+            </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-black text-sm mb-2 line-clamp-2 group-hover:text-orange-600 transition-all">
+                    {{ recent_post.title }}
+                </h4>
+                <p class="text-xs text-slate-500">{{ recent_post.published_at|date:"M d, Y" }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Newsletter CTA (Optional) -->
+<div class="bg-gradient-to-br from-orange-500 to-pink-500 rounded-3xl p-8 text-white">
+    <div class="text-4xl mb-4">✉️</div>
+    <h3 class="text-2xl font-black mb-3">Stay Updated</h3>
+    <p class="mb-6 text-white/90">Get the latest travel tips and destination guides delivered to your inbox.</p>
+    <a href="{% url 'core:home' %}#newsletter" class="block w-full bg-white text-orange-600 text-center px-6 py-3 rounded-xl font-black hover:bg-slate-100 transition-all">
+        Subscribe Now
+    </a>
+</div>

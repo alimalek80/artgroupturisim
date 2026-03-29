@@ -25,12 +25,14 @@ from django.views.i18n import set_language
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),  # Language switching
+    path('ckeditor/', include('ckeditor_uploader.urls')),  # CKEditor file uploads
 ]
 
 # Translated URLs (will be prefixed with language code: /en/, /tr/, /ru/)
 urlpatterns += i18n_patterns(
     path('accounts/', include('accounts.urls')),
     path('tours/', include('tours.urls')),
+    path('blog/', include('blog.urls')),
     path('', include('core.urls')),
     prefix_default_language=False,  # Don't prefix default language (English)
 )

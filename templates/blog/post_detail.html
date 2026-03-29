@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ post.get_meta_title }}{% endblock %}
+
+{% block extra_head %}
+<!-- SEO Meta Tags -->
+<meta name="description" content="{{ post.get_meta_description }}">
+{% if post.meta_keywords %}<meta name="keywords" content="{{ post.meta_keywords }}">{% endif %}
+{% if post.canonical_url %}<link rel="canonical" href="{{ post.canonical_url }}">{% else %}<link rel="canonical" href="{{ request.build_absolute_uri }}">{% endif %}
+<meta name="author" content="{% if post.author %}{{ post.author.get_full_name|default:post.author.email }}{% else %}Art Tourism{% endif %}">
+<meta name="publish_date" content="{{ post.published_at|date:'Y-m-d' }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:title" content="{{ post.get_og_title }}">
+<meta property="og:description" content="{{ post.get_og_description }}">
+{% if post.get_og_image_url %}<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.get_og_image_url }}">{% endif %}
+<meta property="article:published_time" content="{{ post.published_at|date:'c' }}">
+<meta property="article:modified_time" content="{{ post.updated_at|date:'c' }}">
+{% if post.author %}<meta property="article:author" content="{{ post.author.get_full_name|default:post.author.email }}">{% endif %}
+{% if post.category %}<meta property="article:section" content="{{ post.category.name }}">{% endif %}
+{% for tag in post.tag_list %}<meta property="article:tag" content="{{ tag }}">{% endfor %}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:title" content="{{ post.get_og_title }}">
+<meta name="twitter:description" content="{{ post.get_og_description }}">
+{% if post.get_og_image_url %}<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.get_og_image_url }}">{% endif %}
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ post.schema_type }}",
+  "headline": "{{ post.title|escapejs }}",
+  "description": "{{ post.excerpt|escapejs }}",
+  "image": {% if post.featured_image %}"{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}"{% else %}""{% endif %},
+  "datePublished": "{{ post.published_at|date:'c' }}",
+  "dateModified": "{{ post.updated_at|date:'c' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{% if post.author %}{{ post.author.get_full_name|default:post.author.email|escapejs }}{% else %}Art Tourism{% endif %}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Art Tourism",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.build_absolute_uri }}"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Featured Image -->
+<section class="relative min-h-[60vh] flex items-end overflow-hidden pt-32" style="background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), {% if post.featured_image %}url('{{ post.featured_image.url }}'){% else %}url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=80'){% endif %} center/cover;">
+    <div class="relative z-10 text-white px-6 w-full pb-20">
+        <div class="max-w-4xl mx-auto">
+            {% if post.category %}
+            <a href="{{ post.category.get_absolute_url }}" class="inline-block px-6 py-2 bg-orange-500 rounded-full text-sm font-black uppercase tracking-wider mb-6 hover:bg-orange-600 transition-all">
+                {{ post.category.name }}
+            </a>
+            {% endif %}
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                {{ post.title }}
+            </h1>
+            <div class="flex flex-wrap items-center gap-6 text-slate-200">
+                {% if post.author %}
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center font-black">
+                        {{ post.author.get_full_name|default:post.author.email|slice:":1"|upper }}
+                    </div>
+                    <span class="font-bold">{{ post.author.get_full_name|default:post.author.email }}</span>
+                </div>
+                {% endif %}
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span>{{ post.published_at|date:"F d, Y" }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>{{ post.reading_time }} min read</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <span>{{ post.view_count }} views</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-4 gap-12">
+            <!-- Article Content -->
+            <article class="lg:col-span-3">
+                <!-- Excerpt -->
+                {% if post.excerpt %}
+                <div class="bg-slate-50 border-l-4 border-orange-500 p-8 rounded-r-2xl mb-12">
+                    <p class="text-xl text-slate-700 leading-relaxed font-medium italic">
+                        {{ post.excerpt }}
+                    </p>
+                </div>
+                {% endif %}
+
+                <!-- Main Content -->
+                <div class="prose prose-lg max-w-none prose-headings:font-black prose-headings:text-slate-900 prose-p:text-slate-700 prose-p:leading-relaxed prose-a:text-orange-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-img:rounded-2xl prose-img:shadow-lg mb-12">
+                    {{ post.content|safe }}
+                </div>
+
+                <!-- Tags -->
+                {% if post.tag_list %}
+                <div class="mb-12 pb-12 border-b border-slate-200">
+                    <div class="flex flex-wrap gap-3">
+                        <span class="text-slate-600 font-bold">Tags:</span>
+                        {% for tag in post.tag_list %}
+                        <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-bold hover:bg-orange-100 hover:text-orange-700 transition-all cursor-pointer">
+                            #{{ tag }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Related Posts -->
+                {% if related_posts %}
+                <div class="mb-12">
+                    <h2 class="text-3xl font-black mb-8">Related Articles</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        {% for related_post in related_posts %}
+                        <a href="{{ related_post.get_absolute_url }}" class="group block bg-slate-50 rounded-2xl overflow-hidden hover:shadow-lg transition-all">
+                            <div class="relative h-48 overflow-hidden">
+                                {% if related_post.featured_image %}
+                                <img src="{{ related_post.featured_image.url }}" alt="{{ related_post.title }}" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                                {% else %}
+                                <div class="w-full h-full bg-gradient-to-br from-orange-400 to-pink-400"></div>
+                                {% endif %}
+                            </div>
+                            <div class="p-5">
+                                <h3 class="font-black mb-2 line-clamp-2 group-hover:text-orange-600 transition-all">{{ related_post.title }}</h3>
+                                <p class="text-sm text-slate-500">{{ related_post.published_at|date:"M d, Y" }}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Navigation -->
+                <div class="flex justify-between items-center pt-8 border-t border-slate-200">
+                    <a href="{% url 'blog:post_list' %}" class="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-bold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Blog
+                    </a>
+                    {% if post.category %}
+                    <a href="{{ post.category.get_absolute_url }}" class="text-slate-600 hover:text-orange-600 font-bold">
+                        More in {{ post.category.name }} →
+                    </a>
+                    {% endif %}
+                </div>
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lg:col-span-1">
+                {% include 'blog/partials/sidebar.html' %}
+            </aside>
+        </div>
+    </div>
+</section>
+{% endblock %}
